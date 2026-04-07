@@ -117,8 +117,9 @@ nav ul li a:hover::after { width:100%; }
 .hero-pills {
   display:flex; gap:8px; flex-wrap:wrap; margin-top:30px;
   opacity:0; animation:fadeUp 0.7s 1.05s forwards;
+  position:relative; z-index:3;
 }
-.pill { padding:4px 12px; border-radius:12px; font-size:11px; font-weight:600; letter-spacing:0.3px; }
+.pill { padding:4px 12px; border-radius:12px; font-size:11px; font-weight:600; letter-spacing:0.3px; background-color:rgba(255,255,255,0.92); position:relative; z-index:3; }
 .pill-cyan   { background:rgba(6,182,212,0.1);  color:var(--cyan);   border:1px solid rgba(6,182,212,0.22); }
 .pill-red    { background:rgba(239,68,68,0.09);  color:var(--red);    border:1px solid rgba(239,68,68,0.2); }
 .pill-purple { background:rgba(139,92,246,0.09); color:var(--purple); border:1px solid rgba(139,92,246,0.2); }
@@ -332,6 +333,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
 
 @media(max-width:1100px){ .projects-grid{grid-template-columns:repeat(2,1fr)} .project-card.featured-full{grid-column:span 2} }
 @media(max-width:768px){
+  .hero-profile-img { display:none; }
   nav{padding:14px 20px} nav ul{gap:16px}
   section{padding:72px 20px} #hero{padding:0 20px}
   .about-grid,.skills-grid,.awards-timeline{grid-template-columns:1fr;gap:40px}
@@ -441,16 +443,24 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
   <div class="hero-bg-circle1"></div>
   <div class="hero-bg-circle2"></div>
   <div class="hero-dots"></div>
+  <img src="profile.jpg" alt="이형석" onerror="this.style.display='none'" style="
+    position:absolute; right:64px; top:50%; transform:translateY(-50%);
+    width:clamp(320px, 38vw, 560px); height:auto;
+    border-radius:12px; object-fit:cover;
+    opacity:0.92; z-index:1;
+  " class="hero-profile-img">
   <div class="hero-content">
     <div class="hero-tag">PORTFOLIO 2026</div>
     <div class="hero-name">이형석<span class="dot">.</span></div>
-    <div class="hero-sub"><strong>Embedded · 3D Printing · XR</strong> &nbsp;/&nbsp; 스마트팩토리 자동화 엔지니어</div>
+    <div class="hero-sub"><strong>Embedded · 3D Printing · XR</strong> &nbsp;/&nbsp; 자동화 설비·로봇 엔지니어</div>
     <div class="hero-divider"></div>
     <div class="hero-slogan">
       <div class="line1">기업이 새 기술을 필요로 할 때<br>항상 먼저 뛰어들었습니다.</div>
       <div class="line2">이제 한 분야에서 그 모든 경험을 쏟겠습니다.</div>
     </div>
     <div class="hero-pills">
+      <span class="pill pill-cyan">로봇공학</span>
+      <span class="pill pill-red">기구설계</span>
       <span class="pill pill-cyan">3D프린팅</span>
       <span class="pill pill-red">임베디드 HW</span>
       <span class="pill pill-purple">XR / AR / VR</span>
@@ -483,7 +493,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
   <div class="about-grid">
     <div class="about-text reveal">
       <p><strong>웹개발로 시작해서 의료 광학기기, AI특허를 만들고,</strong> VR 촬영과 장비 제작, 실시간 소통 미디어아트, LED구조물 모듈화, 무인 공장 자동화 시스템을 구축했습니다. 어떤 분야든 필요한 기술이 있으면 직접 익히고, 직접 만들었습니다.</p>
-      <p>현재 스마트팩토리 환경에서 <strong>Prusa MK4S 3D프린터 팜의 완전 무인 연속생산 시스템</strong>을 설계·구현하였습니다. 임베디드 제어부터 공정 소재 연구, Python 자동화 스크립트까지 전 과정을 직접 담당합니다.</p>
+      <p>현재 스마트팩토리 환경에서 <strong>Prusa MK4S 3D프린터 팜의 완전 무인 연속생산 시스템</strong>을 설계·구현하였습니다. 임베디드 제어부터 기구 설계·소재 물성 연구, Python 자동화 스크립트까지 전 과정을 직접 담당합니다.</p>
       <p>남중, 공고, 공대, 공학 석사, 그리고 약 10년간 다양한 스타트업에서의 축적된 경험을 이제 한 분야에서 깊이 쏟겠습니다.</p>
       <div class="strength-cards">
         <div class="strength-card"><div class="icon">⚙️</div><div class="stitle">HW 설계 · 제작</div><div class="desc">회로 설계부터 3D프린팅 케이스, 현장 배선까지 직접</div></div>
@@ -519,7 +529,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
     <div class="project-card featured reveal" data-category="auto" data-modal="zadu-setup">
       <div class="card-image"><img src="images/zadu-setup/01.jpg" alt="ZADU 자동화 설비" style="width:100%;height:100%;object-fit:cover;"></div>
       <div class="card-body">
-        <div class="card-tags"><span class="card-tag tag-auto">자동화</span><span class="card-tag tag-hw">임베디드</span><span class="card-tag tag-3d">3D프린팅</span></div>
+        <div class="card-tags"><span class="card-tag tag-auto">자동화</span><span class="card-tag tag-hw">기구설계</span><span class="card-tag tag-hw">임베디드</span></div>
         <div class="card-title">3D프린팅 연속생산 자동화 설비 설계·제작</div>
         <div class="card-company">ZADU · 2025.04 ~ 현재</div>
         <div class="card-desc">Prusa MK4S 팜의 무인 연속생산 공정 전체를 직접 설계하고 설비를 제작. 컨베이어 · 박스타워 · 엘리베이터 · Z축 레일 · 커튼 메커니즘까지 모두 직접 설계·제작.</div>
@@ -527,7 +537,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
           <div class="highlight-item">출력 → 냉각 → 자동 배출 → 컨베이어 이송 → 수거함 적재 전 공정 자동화</div>
           <div class="highlight-item">Arduino Mega + Raspberry Pi 기반 5축 독립 제어 펌웨어 설계</div>
           <div class="highlight-item">GPIO 5비트 명령 프로토콜 + 완료 신호 핸드쉐이크 설계</div>
-          <div class="highlight-item">프린터 10° 전방 틸팅 + POM/나일론 스크레이퍼로 자동 파트 배출 구현</div>
+          <div class="highlight-item">프린터 10° 전방 틸팅 기구 설계 + POM/나일론 스크레이퍼 이형 메커니즘 구현</div>
         </div>
         <div class="code-block"><span class="code-comment"># G코드 후처리 — 스크레이퍼 진입 웨지 자동 생성</span>
 <span class="code-key">def</span> insert_wedge_ramp(gcode_lines, depth=<span class="code-val">4.0</span>, angle=<span class="code-val">15</span>):
@@ -540,14 +550,14 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
     <div class="project-card reveal" data-category="auto" data-modal="zadu-material">
       <div class="card-image"><img src="images/zadu-material/01.jpg" alt="베드 소재 연구" style="width:100%;height:100%;object-fit:cover;"></div>
       <div class="card-body">
-        <div class="card-tags"><span class="card-tag tag-3d">재료물성</span><span class="card-tag tag-auto">공정최적화</span></div>
+        <div class="card-tags"><span class="card-tag tag-3d">재료물성</span><span class="card-tag tag-hw">열유체</span><span class="card-tag tag-auto">공정최적화</span></div>
         <div class="card-title">베드 소재 물성 연구 → 자동 탈착·사출 시스템</div>
         <div class="card-company">ZADU · 2025.04 ~ 현재</div>
         <div class="card-desc">자동 파트 배출의 핵심인 탈착력 제어를 위해 베드 소재의 열팽창 계수 및 표면 특성을 분석. 데이터 기반 소재 선정과 냉각 아키텍처 설계로 무인 사출 신뢰도를 높임.</div>
         <div class="card-highlights">
           <div class="highlight-item">PEI / G10·FR4 / Gold PEI 비교 실험 — 열팽창·접착력·마모도 수집</div>
           <div class="highlight-item">eSUN PLA+ vs PLA Basic 공정 적합성 비교 보고서 작성</div>
-          <div class="highlight-item">Peltier(TEC) 냉각 시스템 설계: 24V SMPS + 채널별 XL4016 벅컨버터</div>
+          <div class="highlight-item">Peltier(TEC) 열전달 냉각 시스템 설계 + 채널별 이형력 제어 아키텍처 구성</div>
           <div class="highlight-item">스크레이퍼 소재 연구: POM/나일론 vs 알루미늄 (PEI 코팅 보호 관점)</div>
         </div>
         <div class="card-footer"><span class="card-period">2025 연구 진행중</span></div>
@@ -868,7 +878,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
     </div>
     <div class="skill-bars reveal" style="animation-delay:0.15s">
       <div class="skill-bar-item">
-        <div class="skill-bar-header"><span class="skill-bar-name">⚙️ HW 설계 · 임베디드</span><span class="skill-bar-pct">85%</span></div>
+        <div class="skill-bar-header"><span class="skill-bar-name">⚙️ 기구설계 · HW · 임베디드</span><span class="skill-bar-pct">85%</span></div>
         <div class="skill-bar-track"><div class="skill-bar-fill bar-cyan" data-width="85"></div></div>
       </div>
       <div class="skill-bar-item">
