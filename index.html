@@ -120,11 +120,11 @@ nav ul li a:hover::after { width:100%; }
   position:relative; z-index:3;
 }
 .pill { padding:4px 12px; border-radius:12px; font-size:11px; font-weight:600; letter-spacing:0.3px; background-color:rgba(255,255,255,0.92); position:relative; z-index:3; }
-.pill-cyan   { background:rgba(6,182,212,0.1);  color:var(--cyan);   border:1px solid rgba(6,182,212,0.22); }
-.pill-red    { background:rgba(239,68,68,0.09);  color:var(--red);    border:1px solid rgba(239,68,68,0.2); }
-.pill-purple { background:rgba(139,92,246,0.09); color:var(--purple); border:1px solid rgba(139,92,246,0.2); }
-.pill-orange { background:rgba(249,115,22,0.09); color:var(--orange); border:1px solid rgba(249,115,22,0.2); }
-.pill-blue   { background:rgba(37,99,235,0.09);  color:var(--blue);   border:1px solid rgba(37,99,235,0.2); }
+.pill-cyan   { background:rgba(220,248,252,0.97);  color:var(--cyan);   border:1px solid rgba(6,182,212,0.35); }
+.pill-red    { background:rgba(254,226,226,0.97);  color:var(--red);    border:1px solid rgba(239,68,68,0.3); }
+.pill-purple { background:rgba(237,233,254,0.97); color:var(--purple); border:1px solid rgba(139,92,246,0.3); }
+.pill-orange { background:rgba(255,237,213,0.97); color:var(--orange); border:1px solid rgba(249,115,22,0.3); }
+.pill-blue   { background:rgba(219,234,254,0.97);  color:var(--blue);   border:1px solid rgba(37,99,235,0.3); }
 
 .hero-btns {
   display:flex; gap:12px; margin-top:36px;
@@ -332,6 +332,16 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
 .project-card.hidden { display:none; }
 
 @media(max-width:1100px){ .projects-grid{grid-template-columns:repeat(2,1fr)} .project-card.featured-full{grid-column:span 2} }
+@keyframes crossfade1 {
+  0%,40%   { opacity:1; }
+  50%,90%  { opacity:0; }
+  100%     { opacity:1; }
+}
+@keyframes crossfade2 {
+  0%,40%   { opacity:0; }
+  50%,90%  { opacity:1; }
+  100%     { opacity:0; }
+}
 @media(max-width:768px){
   .hero-profile-img { display:none; }
   nav{padding:14px 20px} nav ul{gap:16px}
@@ -443,12 +453,24 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
   <div class="hero-bg-circle1"></div>
   <div class="hero-bg-circle2"></div>
   <div class="hero-dots"></div>
-  <img src="profile.jpg" alt="이형석" onerror="this.style.display='none'" style="
+  <div class="hero-profile-img" style="
     position:absolute; right:64px; top:50%; transform:translateY(-50%);
-    width:clamp(320px, 38vw, 560px); height:auto;
-    border-radius:12px; object-fit:cover;
+    width:clamp(320px, 38vw, 560px);
+    border-radius:12px; overflow:hidden;
     opacity:0.92; z-index:1;
-  " class="hero-profile-img">
+    aspect-ratio:663/398;
+  ">
+    <img src="profile.jpg" alt="이형석" onerror="this.parentElement.style.display='none'" style="
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; border-radius:12px;
+      animation:crossfade1 11s infinite;
+    ">
+    <img src="profile2.jpg" alt="이형석" onerror="this.style.display='none'" style="
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; border-radius:12px;
+      animation:crossfade2 11s infinite;
+    ">
+  </div>
   <div class="hero-content">
     <div class="hero-tag">PORTFOLIO 2026</div>
     <div class="hero-name">이형석<span class="dot">.</span></div>
