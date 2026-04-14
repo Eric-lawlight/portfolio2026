@@ -37,7 +37,7 @@ nav {
   border-bottom:1px solid var(--border);
   box-shadow:0 1px 16px rgba(26,43,74,0.07);
 }
-.logo { font-family:'Fira Code',monospace; font-size:17px; color:var(--navy); font-weight:600; }
+.logo { font-family:'Fira Code',monospace; font-size:17px; color:var(--navy); font-weight:600; white-space:nowrap; }
 .logo span { color:var(--cyan); }
 nav ul { display:flex; gap:32px; list-style:none; }
 nav ul li a {
@@ -345,7 +345,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
 @media(max-width:768px){
   .hero-profile-img { display:none; }
   nav{padding:14px 20px} nav ul{gap:16px}
-  section{padding:72px 20px} #hero{padding:0 20px}
+  section{padding:72px 20px} #hero{padding:20px 20px 60px}
   .about-grid,.skills-grid,.awards-timeline{grid-template-columns:1fr;gap:40px}
   .projects-grid{grid-template-columns:1fr}
   .project-card.featured,.project-card.featured-full{grid-column:span 1}
@@ -439,7 +439,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
 <body>
 
 <nav>
-  <div class="logo">&lt;<span>HS</span>.Lee /&gt;</div>
+  <div class="logo">&lt;<span>HS</span>.Lee/&gt;</div>
   <ul>
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#projects">PROJECTS</a></li>
@@ -1049,7 +1049,7 @@ footer { text-align:center; padding:26px; font-family:'Fira Code',monospace; fon
   <p class="contact-sub reveal">새로운 기술이 필요한 곳이라면 어디든 뛰어들었습니다.<br>이제 한 분야에서 깊이 함께하고 싶습니다.</p>
   <div class="contact-links reveal">
     <a href="mailto:mose429@naver.com" class="contact-link"><span class="link-icon">📧</span><span>mose429@naver.com</span></a>
-    <a href="https://github.com/" target="_blank" class="contact-link"><span class="link-icon">🐙</span><span>GitHub</span></a>
+    <a href="https://linktr.ee/LeeEric" target="_blank" class="contact-link"><span class="link-icon">🌿</span><span>Linktree</span></a>
     <a href="이형석_이력서.pdf" class="contact-link" download><span class="link-icon">📄</span><span>이력서 다운로드</span></a>
   </div>
 </section>
